@@ -113,7 +113,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 import moment from "moment";
 import elementUI from "element-ui"
 export default {
@@ -128,7 +128,7 @@ export default {
   },
   created() {
     // 获取顶部三部分数据
-    axios
+    this.$axios
       .get("http://111.230.232.110:8899/site/goods/gettopdata/goods")
       .then(response => {
         console.log(response);
@@ -137,7 +137,7 @@ export default {
         this.toplist = response.data.message.toplist;
       });
       // 获取下面四大部分
-    axios
+    this.$axios
       .get("http://111.230.232.110:8899/site/goods/getgoodsgroup")
       .then(response => {
         console.log(response);

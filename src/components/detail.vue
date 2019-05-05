@@ -68,18 +68,18 @@
                         <div id="goodsTabs" class="goods-tab bg-wrap">
                             <div id="tabHead" class="tab-head" style="position: static; top: 517px; width: 925px;">
                                 <ul>
-                                    <li>
-                                        <a href="javascript:;" class="selected">商品介绍</a>
+                                    <li >
+                                        <a href="javascript:;"  @click="showDesc=true" :class="{selected:showDesc}">商品介绍</a>
                                     </li>
-                                    <li>
-                                        <a href="javascript:;">商品评论</a>
+                                    <li >
+                                        <a href="javascript:;" @click="showDesc=false" :class="{selected:!showDesc}">商品评论</a>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="tab-content entry" style="display: block;" v-html="goodsinfo.content">
+                            <div class="tab-content entry" v-show="showDesc"  v-html="goodsinfo.content">
                                 
                             </div>
-                            <div class="tab-content" style="display: block;">
+                            <div class="tab-content" v-show="!showDesc">
                                 <div class="comment-box">
                                     <div id="commentForm" name="commentForm" class="form-box">
                                         <div class="avatar-box">
@@ -168,7 +168,7 @@ export default {
     name:"detail",
     data() {
         return {
-            num:1,
+            showDesc:true,
             // min:0,
             goodsinfo:{},
             // max:goodsinfo.stock_quantity,

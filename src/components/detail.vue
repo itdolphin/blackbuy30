@@ -180,7 +180,7 @@ export default {
     
     // 接收产品id
     created() {
-        this.$axios.get('http://111.230.232.110:8899/site/goods/getgoodsinfo/'+this.$route.params.id).then(res=>{
+        this.$axios.get('site/goods/getgoodsinfo/'+this.$route.params.id).then(res=>{
             console.log(res);
             this.goodsinfo=res.data.message.goodsinfo
             this.hotgoodslist=res.data.message.hotgoodslist
@@ -188,7 +188,7 @@ export default {
             
         }),
         
-        this.$axios.get(`http://111.230.232.110:8899/site/comment/getbypage/goods/102?pageIndex=1&pageSize=2`).then(res=>{
+        this.$axios.get(`site/comment/getbypage/goods/102?pageIndex=1&pageSize=2`).then(res=>{
             console.log(res);
             
             

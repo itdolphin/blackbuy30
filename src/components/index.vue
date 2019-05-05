@@ -129,7 +129,7 @@ export default {
   created() {
     // 获取顶部三部分数据
     this.$axios
-      .get("http://111.230.232.110:8899/site/goods/gettopdata/goods")
+      .get("site/goods/gettopdata/goods")
       .then(response => {
         console.log(response);
         this.catelist = response.data.message.catelist;
@@ -138,7 +138,7 @@ export default {
       });
       // 获取下面四大部分
     this.$axios
-      .get("http://111.230.232.110:8899/site/goods/getgoodsgroup")
+      .get("site/goods/getgoodsgroup")
       .then(response => {
         console.log(response);
         this.sectionlist=response.data.message

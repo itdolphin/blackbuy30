@@ -3,8 +3,8 @@ import App from './App.vue'
 // 导入axios
 import axios from "axios"
 Vue.prototype.$axios=axios
-// 设置axios全局默认地址
-axios.defaults.baseURL = 'https://api.example.com'
+// 设置axios全局基地址
+axios.defaults.baseURL = 'http://111.230.232.110:8899/'
 // 导入'饿了么ui'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';

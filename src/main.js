@@ -9,6 +9,12 @@ axios.defaults.baseURL = 'https://api.example.com'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+import moment from "moment"
+// 导入全局过滤器
+Vue.filter('formatTime', value=>{
+  return moment(value).format('YYYY年MM月DD日')
+}
+)
 Vue.use(ElementUI);
 // 导入全局样式
 import "./assets/statics/site/css/style.css"

@@ -46,23 +46,7 @@
                                         <dt>购买数量</dt>
                                         <dd>
                                             <div class="stock-box">
-                                                <div class="el-input-number el-input-number--small">
-                                                    <!-- @click='reduce' :class="num<=min?'disabled':''" -->
-                                                    <span  role="button" class="el-input-number__decrease is-disabled">
-                                                        <i class="el-icon-minus"></i>
-                                                    </span>
-                                                    <!-- @click='add' :class="num>=max?'disabled':''" -->
-                                                    <span  role="button" class="el-input-number__increase">
-                                                        <i class="el-icon-plus"></i>
-                                                    </span>
-                                                    <div class="el-input el-input--small">
-                                                        <!---->
-                                                        <input v-model.trim='num' autocomplete="off" size="small" type="text" rows="2" max="60" min="1" validateevent="true" class="el-input__inner" role="spinbutton" aria-valuemax="60" aria-valuemin="1" aria-valuenow="1" aria-disabled="false">
-                                                        <!---->
-                                                        <!---->
-                                                        <!---->
-                                                    </div>
-                                                </div>
+                                                <el-input-number v-model="num"  :min="1" :max="goodsinfo.stock_quantity" label="描述文字"></el-input-number>
                                             </div>
                                             <span class="stock-txt">
                                                 库存
@@ -193,18 +177,7 @@ export default {
             imglist:[]
         }
     },
-    // methods:{
-    //     sub() {
-    //     if (this.num > this.min) {
-    //       this.num--
-    //     }
-    //   },
-    //   add() {
-    //     if (this.num < this.max) {
-    //       this.num++
-    //     }
-    //   }
-    // },
+    
     // 接收产品id
     created() {
         this.$axios.get('http://111.230.232.110:8899/site/goods/getgoodsinfo/'+this.$route.params.id).then(res=>{

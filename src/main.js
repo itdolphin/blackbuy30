@@ -3,6 +3,8 @@ import App from './App.vue'
 // 导入axios
 import axios from "axios"
 Vue.prototype.$axios=axios
+// 设置axios全局默认地址
+axios.defaults.baseURL = 'https://api.example.com'
 // 导入'饿了么ui'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
@@ -23,6 +25,7 @@ import indexVue from "./components/index.vue"
 import detailVue from "./components/detail.vue"
 // 写路由规则
 const routes=[
+  // 重定向
   { path: '/', redirect:"/index"  },
   {path:'/index',component:indexVue},
   {path:'/detail/:id',component:detailVue}

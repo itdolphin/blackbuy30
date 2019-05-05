@@ -24,7 +24,7 @@ import indexVue from "./components/index.vue"
 import detailVue from "./components/detail.vue"
 // 写路由规则
 const routes=[
-  {path:'/',component:indexVue},
+  { path: '/', redirect:indexVue  },
   {path:'/index',component:indexVue},
   {path:'/detail/:id',component:detailVue}
 ]

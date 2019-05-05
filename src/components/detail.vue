@@ -141,12 +141,17 @@
                                 <ul class="side-img-list">
                                     <li v-for="(item, index) in hotgoodslist" :key="index">
                                         <div class="img-box">
-                                            <a href="#/site/goodsinfo/90" class="">
+                                            <!-- <a href="#/site/goodsinfo/90" class=""> -->
+                                            <router-link :to="'/detail/'+item.id">
                                                 <img :src="item.img_url">
-                                            </a>
+                                            </router-link>  
+                                            <!-- </a> -->
                                         </div>
                                         <div class="txt-box">
-                                            <a href="#/site/goodsinfo/90" class="">{{item.title}}</a>
+                                            <!-- <a href="#/site/goodsinfo/90" class=""></a> -->
+                                            <router-link :to="'/detail/'+item.id">
+                                               {{item.title}}
+                                            </router-link> 
                                             <span>{{item.add_time | formatTime}}</span>
                                         </div>
                                     </li>
@@ -193,9 +198,19 @@ export default {
             
             
         })
-        
-
     },
+    // 侦听器
+    watch:{
+        "$route.params.id"(nv,ov){
+            this.$axios.get('site/goods/getgoodsinfo/'+nv).then(res=>{
+            // console.log(res);
+            this.goodsinfo=res.data.message.goodsinfo
+            this.hotgoodslist=res.data.message.hotgoodslist
+            this.imglist=res.data.message.imglist
+            
+        })
+        }
+    }
     // filters:{
     //     formatTime(value){
     //         return moment(value).format('YYYY年MM月DD日')

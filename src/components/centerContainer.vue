@@ -31,12 +31,19 @@
                                         <li>
                                             <h2>
                                                 <i class="iconfont icon-order"></i>
-                                                <span>订单管理</span>
+                                                <router-link to="/centerContainer/findOrder">
+                                                    <span>订单管理</span>
+                                                </router-link>
+                                                
                                             </h2>
                                             <div class="list">
                                                 <p>
-                                                    <a href="#/site/member/orderlist" class="">
-                                                        <i class="iconfont icon-arrow-right"></i>交易订单</a>
+                                                    <!-- <a href="#/site/member/orderlist" class=""> -->
+                                                    <router-link to="/centerContainer/tradeOrder">
+                                                        <i class="iconfont icon-arrow-right"></i>交易订单
+                                                        <!-- </a> -->
+                                                    </router-link>
+                                                        
                                                 </p>
                                             </div>
                                         </li>
@@ -80,7 +87,7 @@
 
 <script>
 export default {
-
+    name:"centerContainer"
 }
 </script>
 

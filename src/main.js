@@ -30,7 +30,9 @@ Vue.use(VueRouter)
 import indexVue from "./components/index.vue"
 import detailVue from "./components/detail.vue"
 import centerContainerVue from "./components/centerContainer.vue"
-import centergls from "./components/centergls.vue"
+import vipcenter from "./components/vipcenter.vue"
+import tradeOrder from "./components/tradeOrder.vue"
+import findOrder from "./components/findOrder.vue"
 // 写路由规则
 const routes=[
   // 重定向
@@ -39,7 +41,10 @@ const routes=[
   {path:'/detail/:id',component:detailVue},
   {path:'/centerContainer',component:centerContainerVue,
   children:[
-    {path:'centergls',component:centergls}
+    {path:'',redirect:"vipcenter"},
+    {path:'vipcenter',component:vipcenter},
+    {path:'tradeOrder',component:tradeOrder},
+    {path:'findOrder',component:findOrder}
   ]
 }
 

@@ -29,12 +29,20 @@ Vue.use(VueRouter)
 // 导入组件
 import indexVue from "./components/index.vue"
 import detailVue from "./components/detail.vue"
+import centerContainerVue from "./components/centerContainer.vue"
+import centergls from "./components/centergls.vue"
 // 写路由规则
 const routes=[
   // 重定向
-  { path: '/', redirect:"/index"  },
+  {path: '/', redirect:"/index"},
   {path:'/index',component:indexVue},
-  {path:'/detail/:id',component:detailVue}
+  {path:'/detail/:id',component:detailVue},
+  {path:'/centerContainer',component:centerContainerVue,
+  children:[
+    {path:'centergls',component:centergls}
+  ]
+}
+
 ]
 // 实例化路由
 const router=new VueRouter({

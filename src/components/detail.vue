@@ -177,12 +177,26 @@ export default {
             // min:0,
             goodsinfo:{},
             // max:goodsinfo.stock_quantity,
-            
             hotgoodslist:[],
-            imglist:[]
+            imglist:[],
+            // 页码
+            pageIndex:1,
+            // 页容量
+            pageSize:10,
+            // 评论数据
+            comments:[],
+            // 评论数
+            commentNum:0
         }
     },
-    
+    methods:{
+        getComments(){
+            this.$axios.get(`site/comment/getbypage/goods/${this.$route.params.id}?pageIndex=${this.pageIndex}&pageSize=${this.pageSize}`).then(res=>{
+                this.comments=res.data.totalcount
+                this.commentNum=res.data.message
+            })
+        }
+    },
     // 接收产品id
     created() {
         this.$axios.get('site/goods/getgoodsinfo/'+this.$route.params.id).then(res=>{
@@ -193,11 +207,7 @@ export default {
             
         }),
         
-        this.$axios.get(`site/comment/getbypage/goods/102?pageIndex=1&pageSize=2`).then(res=>{
-            console.log(res);
-            
-            
-        })
+        this.getComments()
     },
     // 侦听器
     watch:{
@@ -208,7 +218,8 @@ export default {
             this.hotgoodslist=res.data.message.hotgoodslist
             this.imglist=res.data.message.imglist
             
-        })
+        }),
+        this.getComments()
         }
     }
     // filters:{

@@ -14,9 +14,9 @@
                     <div class="left-925">
                         <div class="goods-box clearfix">
                             <div class="pic-box">
-                               <el-carousel height="150px">
+                               <el-carousel height="315px" width="395px">
                                     <el-carousel-item v-for="item in imglist" :key="item.id">
-                                        <img :src="item.thumb_path" alt="">
+                                        <img :src="item.thumb_path" alt="" class="slider_img">
                                     </el-carousel-item>
                                 </el-carousel>
                             </div>
@@ -209,5 +209,12 @@ export default {
         display: block;
         width: 100%;
         height: 100%;
+    }
+    .pic-box {
+        width: 395px;
+        height: 315px;
+    }
+    .pic-box .slider_img{
+        width: 100%;
     }
 </style>
